@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:8.0.2
+    environment:
+      MYSQL_ROOT_PASSWORD: segredo09
+      MYSQL_DATABASE: cinema
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d/:ro
+    ports:
+      - 3308:3306
+  cinemaAPI:
+    image: node:8.11.1
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 3838:3838
+    command: bash -c "cd /backend && npm i && npm run start"
+  cinemaWEB:
+    image: node:8.11.1
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - 80:3000
+    command: bash -c "cd /frontend && npm i && npm run start"

@@ -1,0 +1,35 @@
+{
+  "name": "CinemaAPI",
+  "version": "1.0.0",
+  "description": "Example of API that allows buy cinema tickets online.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianodiniz/CinemaAPI.git"
+  },
+  "keywords": [],
+  "author": "Cristiano Diniz Pinto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristianodiniz/CinemaAPI/issues"
+  },
+  "homepage": "https://github.com/cristianodiniz/CinemaAPI#readme",
+  "dependencies": {
+    "blob-stream": "^0.1.3",
+    "body-parser": "^1.18.3",
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.16.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.2.5",
+    "morgan": "^1.9.0",
+    "mysql": "^2.16.0",
+    "node-restful": "^0.2.6",
+    "nodemon": "^1.18.4",
+    "pdfkit": "^0.8.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
