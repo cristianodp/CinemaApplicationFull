@@ -6,7 +6,7 @@ _____
 
 #### Requirement
 
-- [Heading link](https://www.docker.com "docker installed")
+- [docker installed](https://www.docker.com "docker installed")
 
 
 #### Run
