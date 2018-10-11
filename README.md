@@ -14,4 +14,11 @@ After cloned the repository go to the terminal and enter in the project folder, 
 
 > docker-compose up
 
+_____
+
+#### Services
+
+- mysql will run on port 3306
+- backend will run on port 3838
+- fontend will run on port 80
 
