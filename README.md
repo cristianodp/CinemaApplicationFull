@@ -15,6 +15,8 @@ After cloned the repository go to the terminal and enter in the project folder, 
 
 > docker-compose up
 
+This execution can take more than 10 minutes, so go take a coffee and came back.
+
 _____
 
 #### Services
@@ -22,4 +24,6 @@ _____
 - mysql will run on port 3306
 - backend will run on port 3838
 - frontend will run on port 80
+
+> [http://localhost/](http://localhost/ "http://localhost/")
 
