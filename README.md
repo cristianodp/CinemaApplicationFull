@@ -1,5 +1,6 @@
 # CinemaApplicationFull
 Example of WEB Application that allows to buy cinema tickets online.
+
 ![](https://raw.githubusercontent.com/cristianodiniz/CinemaApplicationFull/master/imgs/function1.gif)
 ![](https://raw.githubusercontent.com/cristianodiniz/CinemaApplicationFull/master/imgs/function2.gif)
 
