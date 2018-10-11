@@ -18,7 +18,7 @@ After cloned the repository go to the terminal and enter in the project folder, 
 
 > docker-compose up
 
-This execution can take more than 10 minutes, so go take a coffee and came back.
+This execution can take more than 10 minutes, so go take a coffee and come back.
 
 _____
 
