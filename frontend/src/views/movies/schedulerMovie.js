@@ -20,7 +20,7 @@ function schedulesMovie(props) {
     <Grid item xs sm container>
       {schedules.map(it => (
         <Grid key={it.seq} item xs style={{ textAlign: "center" }}>
-          <Typography variant="subheading">{it.dayOfTheWeek}</Typography>
+          <Typography variant="subtitle1">{it.dayOfTheWeek}</Typography>
 
           {it.sessions.map(sess => (
             <Button

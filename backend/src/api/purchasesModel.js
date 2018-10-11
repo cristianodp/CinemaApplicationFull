@@ -1,4 +1,5 @@
 const PurchasesDAO = require("../api/purchasesDAO");
+const ItensPurchasesDAO = require("./itensPurchasesDAO");
 const { SelectModel, InsertModel } = require("../common/baseModel");
 const OrderPdf = require("../common/orderPdf");
 const InsertPurchases = InsertModel(PurchasesDAO);
@@ -46,9 +47,7 @@ const ProcessTransaction = (req, res, next) => {
     transaction_date: new Date().toISOString()
   };
 
-  const conn = require("../config/database")();
-
-  PurchasesDAO(conn).insert(objPayment, (err, result) => {
+  PurchasesDAO().insert(objPayment, (err, result) => {
     if (err) {
       res.status(500).json(err);
       return;
@@ -65,8 +64,7 @@ const ProcessTransaction = (req, res, next) => {
           objIt.chair = chair;
           objIt.session_id = sessId;
           objIt.total = total;
-          const ItensPurchasesDAO = require("./itensPurchasesDAO");
-          new ItensPurchasesDAO(conn).insert(objIt, (err, result) => {
+          ItensPurchasesDAO().insert(objIt, (err, result) => {
             if (err) {
               reject(err);
             }
@@ -87,7 +85,6 @@ const ProcessTransaction = (req, res, next) => {
 };
 
 const GenerateOrderPDF = (req, res, next) => {
-  const conn = require("../config/database")();
 
   const query =
     "select fil.name " +
@@ -122,7 +119,7 @@ const GenerateOrderPDF = (req, res, next) => {
     "        , p.transaction_id " +
     "        , p.authorization ";
 
-  PurchasesDAO(conn).execQuery(query, (err, secess) => {
+  PurchasesDAO().execQuery(query, (err, secess) => {
     if (err) {
       res.status(500).json(err);
       return;

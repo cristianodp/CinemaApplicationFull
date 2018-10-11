@@ -1,4 +1,5 @@
-module.exports = function SessionsADO(conn) {
+module.exports = function SessionsADO() {
+  const conn = require('../config/database') 
   const _tableName = "tsessions";
 
   function getWhere(query) {
@@ -23,7 +24,7 @@ module.exports = function SessionsADO(conn) {
   }
 
   function insert(parms, callback) {
-    conn().query(`insert into ${_tableName} set ?`, parms, (err, result) => {
+    conn().exec(`insert into ${_tableName} set ?`, parms, (err, result) => {
       if (err) {
         callback(err);
         return;

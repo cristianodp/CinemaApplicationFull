@@ -1,9 +1,8 @@
 const FilmsADO = require("./filmsDAO");
 const SessionsADO = require("./sessionsADO");
-//const { callbackLog, closeConnection } = require("../common/utils");
 
-const clearDataBase = conn => callback => {
-  FilmsADO(conn).trucate(callback);
+const clearDataBase = (callback) => {
+  FilmsADO().trucate(callback);
 };
 
 const LoadFilmsFromFileModel = (req, res, next) => {
@@ -20,41 +19,35 @@ const LoadFilmsFromFileModel = (req, res, next) => {
       return res.status(500).json({ errors: "array no informed" });
     }
 
-    const conn = require("../config/database")();
-
-    clearDataBase(conn)((err1, sucess1) => {
+    clearDataBase((err1, sucess1) => {
       if (err1) {
         res.status(400).send(err1);
-        //closeConnection(conn,"LoadFilmsFromFileModel")
         return;
       }
 
       let control = 0;
       let aux = 0;
       filmJson.forEach(it => {
-        FilmsADO(conn).insert({ name: it.name }, (err2, sucess2) => {
+        FilmsADO().insert({ name: it.name }, (err2, sucess2) => {
           if (err2) {
             res.status(400).send(err2);
-            //closeConnection(conn,"LoadFilmsFromFileModel")
             return;
           }
 
           it.sessions.forEach(sess => {
             control += 1;
             console.log("sucess2[0]", sucess2[0]);
-            SessionsADO(conn).insert(
+            SessionsADO().insert(
               { ...sess, film_id: sucess2[0].id },
               (err3, sucess3) => {
                 control -= 1;
                 if (err3 && aux === 0) {
                   aux = 1;
-                  //closeConnection(conn,"GetSessionOcupation")
                   res.status(400).send(err3);
                   return;
                 }
                 if (control <= 0 && aux === 0) {
                   aux = 1;
-                  //closeConnection(conn,"GetSessionOcupation")
                   res.status(200).send(true);
                 }
               }

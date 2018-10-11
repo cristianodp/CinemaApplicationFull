@@ -65,7 +65,7 @@ function isChairAvilable(chair, purchases) {
 }
 
 const callbackLog = tag => (error, sucess) => {
-  if (err) {
+  if (error) {
     console.log("error", tag, error);
   } else {
     console.log("sucess", tag, sucess);

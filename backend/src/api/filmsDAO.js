@@ -1,4 +1,5 @@
-module.exports = function FilmsDAO(conn) {
+module.exports = function FilmsDAO() {
+  const conn = require("../config/database");
   const _tableName = "tfilms";
 
   function getWhere(query) {
@@ -23,7 +24,7 @@ module.exports = function FilmsDAO(conn) {
   }
 
   function insert(parms, callback) {
-    conn().query(`insert into ${_tableName} set ?`, parms, (err, result) => {
+    conn().exec(`insert into ${_tableName} set ?`, parms, (err, result) => {
       if (err) {
         callback(err);
         return;

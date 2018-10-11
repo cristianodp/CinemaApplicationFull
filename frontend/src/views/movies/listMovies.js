@@ -7,18 +7,21 @@ import Typography from "@material-ui/core/Typography";
 import RowMovie from "./rowMovie";
 
 const styles = theme => ({
+  typography: {
+    useNextVariants: true,
+  },
   list: {}
 });
 
 class ListMovies extends Component {
   render() {
-    const { list, onSelected } = this.props;
+    const { classes, list, onSelected } = this.props;
 
     if (list.length === 0) {
       return (
         <div style={{ textAlign: "center", marginTop: "30%" }}>
           <CloseIcon fontSize="large" />
-          <Typography> No data found</Typography>
+          <Typography className={classes.typography} variant="subtitle1"> No data found</Typography>
         </div>
       );
     }

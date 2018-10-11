@@ -11,6 +11,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import UpdateRounded from "@material-ui/icons/CloudUpload";
 
 const styles = theme => ({
+  typography: {
+    useNextVariants: true,
+  },
   root: {
     width: "100%"
   },
@@ -88,7 +91,7 @@ function SearchAppBar(props) {
         <Toolbar>
           <Typography
             className={classes.title}
-            variant="title"
+            variant="h5"
             color="inherit"
             noWrap
           >
@@ -102,8 +105,8 @@ function SearchAppBar(props) {
             }}
           >
             <UpdateRounded />
-            <Typography style={{ marginLeft: "8px" }}>
-              Load Films from SCV
+            <Typography style={{ marginLeft: "8px" }} variant="subtitle1">
+              Load Films from CSV
             </Typography>
           </IconButton>
 

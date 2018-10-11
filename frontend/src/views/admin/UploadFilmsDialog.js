@@ -118,6 +118,7 @@ class CreateCinemaDialog extends Component {
                 id="descriptionTextField"
                 label=""
                 name="description"
+                variant="subtitle1"
                 className={classes.textField}
                 value={description}
                 onChange={this._handleChange("description")}

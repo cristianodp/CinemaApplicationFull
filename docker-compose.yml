@@ -8,16 +8,16 @@ services:
     volumes:
       - ./scripts:/docker-entrypoint-initdb.d/:ro
     ports:
-      - 3308:3306
-  cinemaAPI:
+      - 3306:3306
+  backend:
     image: node:8.11.1
     volumes:
       - ./backend:/backend
     ports:
       - 3838:3838
     command: bash -c "cd /backend && npm i && npm run start"
-  cinemaWEB:
-    image: node:8.11.1
+  frontend:
+    image: node:8.12.0-jessie
     volumes:
       - ./frontend:/frontend
     ports:

@@ -13,6 +13,9 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     margin: 4
   },
+  typography: {
+    useNextVariants: true,
+  },
   img: {
     margin: "auto",
     display: "block",
@@ -39,7 +42,7 @@ function RowMovie(props) {
         <Grid item xs={10} sm container>
           <Grid item xs container direction="column" spacing={16}>
             <Grid item xs>
-              <Typography gutterBottom variant="subheading">
+              <Typography gutterBottom variant="subtitle1">
                 {film.name}
               </Typography>
 

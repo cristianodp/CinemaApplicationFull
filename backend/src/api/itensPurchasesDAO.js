@@ -1,4 +1,5 @@
-module.exports = function PurchasesDAO(conn) {
+module.exports = function PurchasesDAO() {
+  const conn = require('../config/database') 
   const _tableName = "titens_purchases";
 
   function getWhere(query) {
@@ -19,7 +20,7 @@ module.exports = function PurchasesDAO(conn) {
   }
 
   function insert(parms, callback) {
-    conn().query(`insert into ${_tableName} set ?`, parms, (err, sucess) => {
+    conn().exec(`insert into ${_tableName} set ?`, parms, (err, sucess) => {
       if (err) {
         callback(err, null);
         return;

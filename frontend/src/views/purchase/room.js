@@ -15,13 +15,13 @@ const styles = theme => ({
   screen: {
     backgroundColor: "#000000b0",
     color: "white",
-    margin: "28px",
+    margin: "24px",
     textAlign: "center"
   },
   sessonInfo: {
-    padding: "28px",
+    padding: "16px",
     color: "white",
-    margin: "28px",
+    margin: "16px",
     textAlign: "center"
   },
   totalPanel: {
@@ -118,14 +118,14 @@ class Room extends Component {
     return (
       <Fragment>
         <div className={classes.sessonInfo}>
-          <Typography variant="title">
+          <Typography variant="h6">
             {roomPage.msgSelectChair
               .replace("<name>", session.name)
               .replace("<time>", session.time)}
           </Typography>
         </div>
         <div className={classes.screen}>
-          <Typography style={{ color: "white" }}>
+          <Typography variant="subtitle1" style={{ color: "white" }}>
             {roomPage.LbScreen}
           </Typography>
         </div>
@@ -150,7 +150,7 @@ class Room extends Component {
         ))}
 
         <div className={classes.totalPanel} color="default">
-          <Typography variant="title" style={{ float: "left", color: "white" }}>
+          <Typography variant="h6" style={{ float: "left", color: "white" }}>
             {`${roomPage.LbTotal} ${this._getTotalFormated()}`}
           </Typography>
 

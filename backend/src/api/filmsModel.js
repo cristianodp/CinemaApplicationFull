@@ -5,7 +5,6 @@ const SelectFilm = SelectModel(FilmsDAO);
 const { getImageFile } = require("../common/utils");
 
 const selectFilmsAndSessions = (req, res, next) => {
-  const conn = require("../config/database")();
   const query =
     "select fil.id filmId " +
     "     , fil.name " +
@@ -17,7 +16,7 @@ const selectFilmsAndSessions = (req, res, next) => {
       req.query.name ? ` and upper(name) like upper('%${req.query.name}%')` : ""
     }` +
     " order by  fil.id ,seq,time";
-  FilmsDAO(conn).execQuery(query, (err, result) => {
+  FilmsDAO().execQuery(query, (err, result) => {
     if (err) {
       res.status(400).send(err);
     }
