@@ -21,5 +21,5 @@ _____
 
 - mysql will run on port 3306
 - backend will run on port 3838
-- fontend will run on port 80
+- frontend will run on port 80
 
