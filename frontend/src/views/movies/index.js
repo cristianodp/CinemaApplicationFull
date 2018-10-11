@@ -75,7 +75,7 @@ class Movies extends Component {
     return (
       <Fragment>
         <Header
-          title="Movies"
+          title="Cinema"
           openUploadDialog={openUploadDialog}
           handlerShowUploadDialog={this._handlerShowUploadDialog}
           enableSearch={sessionSelected === null}
